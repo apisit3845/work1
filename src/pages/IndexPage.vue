@@ -1,6 +1,5 @@
 <template>
   <div class="q-pa-md" style="max-width: 400px">
-
     <q-form
       @submit="onSubmit"
       @reset="onReset"
@@ -14,7 +13,6 @@
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type something']"
       />
-
       <q-input
         filled
         type="number"
@@ -26,15 +24,12 @@
           val => val > 0 && val < 100 || 'Please type a real age'
         ]"
       />
-
       <q-toggle v-model="accept" label="I accept the license and terms" />
-
       <div>
         <q-btn label="Submit" type="submit" color="primary"/>
         <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
-
   </div>
 </template>
 <script>
@@ -48,12 +43,10 @@ export default {
     const name = ref(null)
     const age = ref(null)
     const accept = ref(false)
-
     return {
       name,
       age,
       accept,
-
       onSubmit () {
         if (accept.value !== true) {
           $q.notify({
@@ -72,7 +65,6 @@ export default {
           })
         }
       },
-
       onReset () {
         name.value = null
         age.value = null
